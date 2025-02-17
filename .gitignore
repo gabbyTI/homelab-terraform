@@ -1,0 +1,26 @@
+# Terraform state files (sensitive data)
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+
+# Ignore Terraform provider plugins
+.terraform/
+.terraform.lock.hcl
+
+# Ignore variables file (if it contains secrets)
+terraform.tfvars
+*.auto.tfvars
+
+# Ignore override files (local-only configs)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore plan files
+*.tfplan
+
+# Ignore sensitive credentials
+credentials.auto.tfvars
