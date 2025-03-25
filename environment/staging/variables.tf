@@ -20,3 +20,14 @@ variable "pm_tls_insecure" {
   type        = bool
   default     = false
 }
+
+variable "default_user" {
+  description = "Default user for Proxmox VMs"
+  type        = string
+}
+
+variable "default_password" {
+  description = "Default password for Proxmox VMs"
+  type        = string
+  sensitive   = true
+}
