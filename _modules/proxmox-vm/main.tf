@@ -17,8 +17,6 @@ resource "proxmox_vm_qemu" "vm" {
   onboot     = true
 
   ipconfig0  = "ip=dhcp"
-  ciuser     = var.ciuser
-  cipassword = var.cipassword
 
   network {
     id     = 0

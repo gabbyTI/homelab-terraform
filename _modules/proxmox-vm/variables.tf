@@ -44,16 +44,16 @@ variable "sockets" {
   default     = 1
 }
 
-variable "ciuser" {
-  description = "Cloud-init username"
-  type        = string
-}
+# variable "ciuser" {
+#   description = "Cloud-init username"
+#   type        = string
+# }
 
-variable "cipassword" {
-  description = "Cloud-init password"
-  type        = string
-  sensitive   = true
-}
+# variable "cipassword" {
+#   description = "Cloud-init password"
+#   type        = string
+#   sensitive   = true
+# }
 
 variable "network_bridge" {
   description = "Network bridge to attach to"
