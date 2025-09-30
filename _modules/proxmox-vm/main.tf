@@ -1,17 +1,23 @@
 resource "proxmox_vm_qemu" "vm" {
   count       = var.vm_count
+  vmid        = var.vmid
   name        = var.vm_count > 1 ? "${var.vm_name}-${count.index + 1}" : var.vm_name
   desc        = var.vm_desc
   tags        = var.tags
   target_node = var.target_node
 
-  agent      = 1
-  clone      = var.template_name
+  agent         = 1
+  agent_timeout = 300
+  clone         = var.template_name
   full_clone = true
   memory     = var.memory
-  cores      = var.cores
-  cpu_type   = "host"
-  sockets    = var.sockets
+
+  cpu {
+    cores   = var.cores
+    sockets = var.sockets
+    type    = "host"
+  }
+
   os_type    = "cloud-init"
   scsihw     = "virtio-scsi-single"
   onboot     = true

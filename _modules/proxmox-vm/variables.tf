@@ -81,3 +81,9 @@ variable "tags" {
   type        = string
   default     = ""
 }
+
+variable "vmid" {
+  description = "VM ID (optional - Proxmox will auto-assign if not specified)"
+  type        = number
+  default     = null
+}
