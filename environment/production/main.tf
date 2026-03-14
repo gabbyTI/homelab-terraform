@@ -49,6 +49,34 @@ module "authentik" {
   tags           = "sso"
 }
 
+module "openwebui" {
+  source = "../../_modules/proxmox-vm/" # Path to your module
+
+  # VM Configuration
+  vm_name       = "openwebui"
+  target_node   = "pve"
+  template_name = "ubuntu-noble-1745509880"
+  memory        = 12192 # Override the memory for this set of VMs (4GB)
+  cores         = 2
+  # ciuser            = var.default_user
+  # cipassword        = var.default_password
+  network_bridge = "vmbr1"
+  disk_size      = "20G" # can only increase size
+  disk_discard   = true
+  tags           = "ai,webui"
+}
+
+module "kubernetes" {
+  source = "../../_modules/kubernetes"
+
+  iso               = "local:iso/nocloud-amd64.iso"
+  disk_size         = "40G"
+  disk_storage      = "vm-disks"
+  cloudinit_storage = "local-lvm"
+  memory            = 4096
+  cores             = 4
+}
+
 # module "gitlab" {
 #   source = "../../_modules/proxmox-vm/" # Path to your module
 

@@ -14,6 +14,11 @@ output "authentik_ip" {
   value       = module.authentik.vm_ips[0]
 }
 
+output "openwebui_ip" {
+  description = "The outputs of the openwebui VM"
+  value       = module.openwebui.vm_ips[0]
+}
+
 # output "gitlab_ip" {
 #   description = "The outputs of the gitlab VM"
 #   value       = module.gitlab.vm_ips[0]
